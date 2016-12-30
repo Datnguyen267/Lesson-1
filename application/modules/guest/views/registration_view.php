@@ -28,13 +28,6 @@ $now = getdate();
 for($i = $now['year'] - 1; $i>=$now['year'] - 100; $i--){
     $year[$i] = $i;
 }
-$cancel = array(
-        'name'          => 'button',
-        'id'            => 'button',
-        'value'         => 'true',
-        'type'          => 'reset',
-        'content'       => 'Reset'
-);
 ?>
     <div align="center">
         <p>Menu</p>
@@ -168,8 +161,7 @@ $cancel = array(
                 <?php echo form_submit("regist",  "Regist");?>
           </td>
           <td>
-                <?php  echo form_button($cancel);?>
-
+                <button onclick="window.location.href='http://lesson1.lampart.com.vn/guest/main'">Cancel</button>
           </td>
       </tr>
       </table>

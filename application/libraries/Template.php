@@ -34,17 +34,17 @@
 //                     show_error('Unable to load the requested file: ' . $tpl_name.'/'.$view_name.'.php');
 //                 }
 
-                    if ( file_exists( APPPATH.'modules/guest/views/'.$body_view.'.php' ) )
+                    if ( file_exists( APPPATH.'modules/'.$tpl_view.'/views/'.$tpl_view.'/'.$body_view.'.php' ) )
                     {
                         $body_view_path = $body_view.'.php';
                     }
-                    else if ( file_exists( APPPATH.'modules/member/views/'.$body_view.'.php' ) )
+                    else if ( file_exists(  APPPATH.'modules/'.$tpl_view.'/views/'.$body_view.'.php' ) )
                     {
                         $body_view_path = $body_view.'.php';
                     }
                     else
                         {
-                        show_error('Unable to load the requested file: ' . APPPATH.'modules/'.$body_view.'/views/'.$body_view.'.php');
+                        show_error('Unable to load the requested file: ' . $body_view_path.'.php');
                     }
 
                 $body = $this->ci->load->view($body_view_path, $data, TRUE);
