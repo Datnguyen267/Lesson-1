@@ -13,20 +13,9 @@
  $birthday = $currentUser['birthday'];
 $date = explode("-", $birthday);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Lesson1</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>js/change_date.js"> </script>
-<script type="text/javascript" src="<?php echo base_url();?>js/change-profile_validation.js"> </script>
-</head>
-
-<body>
+<div id = 'body'>
      <?php
-      echo form_open(base_url()."member/profile/change_profile");
+      echo form_open(base_url()."member/profile/change_profile",'class = "profile"');
       echo form_fieldset("Change Profile"); ?>
       <table align = "center">
           <td>
@@ -73,9 +62,9 @@ $date = explode("-", $birthday);
           <td>
                 <?php
                 if($sex == 1){
-                    echo form_radio('sex','1',TRUE)."Male".form_radio('sex','2')."Female"."<br />";
+                    echo form_radio('sex','1',TRUE)."Male".form_radio('sex','2')."Female    "."<span class = s> </span>"."<br />";
                 }else{
-                    echo form_radio('sex','1')."Male".form_radio('sex','2',TRUE)."Female"."<br />";
+                    echo form_radio('sex','1')."Male".form_radio('sex','2',TRUE)."Female    "."<span class = s> </span>"."<br />";
                 }
                 ?>
           </td>
@@ -118,7 +107,7 @@ $date = explode("-", $birthday);
                         echo "<option value = '$i'>$i</option> ";
                     }
                 }
-                echo "</select>"."<span class = 'b'> </span>";
+                echo "</select>"."<span class = b> </span>";
                 ?>
           </td>
           <td>
@@ -136,6 +125,4 @@ $date = explode("-", $birthday);
       <?php
       echo form_fieldset_close();
       echo form_close();?>
-
-</body>
-</html>
+</div>

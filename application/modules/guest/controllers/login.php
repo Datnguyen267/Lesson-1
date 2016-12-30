@@ -36,7 +36,7 @@ class Login extends CI_Controller{
         }
         $data = array(
 
-                'title' => 'Title goes here',
+                'title' => 'Login',
                 'b_Check' => $this->b_Check
         );
         $this->template->load('guest', 'login_view', $data);

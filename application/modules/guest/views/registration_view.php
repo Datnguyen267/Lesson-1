@@ -36,20 +36,6 @@ $cancel = array(
         'content'       => 'Reset'
 );
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Lesson1</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
-<script type="text/javascript" src="<?php echo base_url();?>js/change_date.js"> </script>
-<script type="text/javascript" src="<?php echo base_url();?>js/refresh_captcha.js"> </script>
-<script type="text/javascript" src="<?php echo base_url();?>js/validation.js"> </script>
-
-</head>
-
-<body>
     <div align="center">
         <p>Menu</p>
         <a href = "<?php echo base_url();?>guest/main">1. Main </a> </br>
@@ -171,7 +157,7 @@ $cancel = array(
                 <?php echo form_label("Text in the box: ");?>
           </td>
           <td>
-                <?php echo form_input('captcha')."<span class = 'c'> </span>"; echo "<a href='#' class ='refresh'><img id = 'ref_symbol' width = '20px' heigth = '20px' src =".base_url()."img/refresh.png></a>"."<br />"; ?>
+                <?php echo form_input('captcha')."<span class = 'c'> </span>"; echo "<a href='#' class ='refresh'><img id = 'ref_symbol' width = '20px' heigth = '20px' src =".base_url()."assets/img/refresh.png></a>"."<br />"; ?>
           </td>
            <td>
                   <?php echo form_error('captcha');?>
@@ -190,6 +176,3 @@ $cancel = array(
       <?php
       echo form_fieldset_close();
       echo form_close();?>
-
-</body>
-</html>

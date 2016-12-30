@@ -4,9 +4,15 @@
 
 <!DOCTYPE html>
 <html>
+<title><?php echo $title; ?></title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo asset_url('js/change_date.js'); ?>"> </script>
+<script type="text/javascript" src="<?php echo asset_url('js/change-email_validation.js'); ?>"> </script>
+<script type="text/javascript" src="<?php echo asset_url('js/change-password_validation.js'); ?>"> </script>
+<script type="text/javascript" src="<?php echo asset_url('js/change-profile_validation.js'); ?>"> </script>
 
 <head>
-<title><?php echo $title; ?></title>
+
     </head>
 
     <body>
@@ -20,7 +26,5 @@
             <?php echo $body; ?>
 
         </div>
-
     </body>
-
 </html>

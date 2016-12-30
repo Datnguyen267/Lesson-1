@@ -1,24 +1,15 @@
 <?php
 $t = $this->session->userdata('user');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Lesson1</title>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>js/change-password_validation.js"> </script>
-</head>
-<body>
      <?php
-      echo form_open(base_url()."member/changepassword/change_password");
+      echo form_open(base_url()."member/changepassword/change_password", 'class = "password"');
       echo form_fieldset("Change your password"); ?>
       <table align = "center">
           <td>
                 <?php echo form_label("Old password : ");?>
           </td>
           <td>
-                <?php echo form_password('oldpass')."<br />";?>
+                <?php echo form_password('oldpass')."<span class = o></span>"."<br />";?>
           </td>
           <td>
                   <?php echo form_error('oldpass');?>
@@ -29,10 +20,10 @@ $t = $this->session->userdata('user');
                 <?php echo form_label("New password : ");?>
           </td>
           <td>
-                <?php echo form_password('newpass')."<span class = n></span>"."<br />";?>
+                <?php echo form_password('password')."<span class = p></span>"."<br />";?>
           </td>
            <td>
-                  <?php echo form_error('newpass');?>
+                  <?php echo form_error('password');?>
           </td>
       </tr>
       <tr>
@@ -58,6 +49,3 @@ $t = $this->session->userdata('user');
       <?php
       echo form_fieldset_close();
       echo form_close();?>
-
-</body>
-</html>

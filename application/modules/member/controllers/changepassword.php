@@ -28,7 +28,7 @@ if (!defined('BASEPATH'))
             }
             $this->load->library('form_validation');
             $this->form_validation->set_rules('oldpass', 'Old password', 'callback_check_passowrd');
-            $this->form_validation->set_rules('newpass', 'New password', 'required|matches[renewpass]|callback_check_newpass');
+            $this->form_validation->set_rules('password', 'New password', 'required|matches[renewpass]|callback_check_newpass');
             $this->form_validation->set_rules('renewpass', 'Confirm new password', 'required');
 
             if($this->form_validation->run()){

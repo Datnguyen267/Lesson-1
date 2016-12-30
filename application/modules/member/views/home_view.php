@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Lesson1</title>
-    </head>
-    <body>
+
         <div id="container">
             <h1>Home</h1>
 
@@ -14,6 +9,3 @@
                 <a href = "<?php echo base_url();?>member/home/logout">4. Logout </a>
             </div>
         </div>
-
-    </body>
-</html>
