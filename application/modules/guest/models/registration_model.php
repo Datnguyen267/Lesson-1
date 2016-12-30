@@ -4,9 +4,9 @@ class Registration_model extends CI_Model{
         parent::__construct();
     }
     public function register(){
-        $bday= $this->input->post('bday');
-        $bmonth= $this->input->post('bmonth');
-        $byear= $this->input->post('byear');
+        $bday= $this->input->post('day');
+        $bmonth= $this->input->post('month');
+        $byear= $this->input->post('year');
         $birthday = $byear."-".$bmonth."-".$bday ;
         $data= array(
                 'username'=> $this->input->post('username'),
@@ -15,7 +15,8 @@ class Registration_model extends CI_Model{
                 'sex'=> $this->input->post('sex'),
                 'birthday'=>$birthday,
                 'address'=> $this->input->post('address'),
-                'email'=> $this->input->post('email')
+                'email'=> $this->input->post('email'),
+                'hash' => md5($this->input->post('email')."Verifiy Code.")
 
         );
         $this->db->insert('User',$data);

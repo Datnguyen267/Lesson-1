@@ -9,6 +9,7 @@ $(function(){
             $("span.o").text("").show();
        }else{
            $("span.o").text("Old password is required.").show();
+           $("span.o").css('color', 'red');
            b = false;
         }
 
@@ -16,6 +17,7 @@ $(function(){
              $("span.p").text("").show();
         }else{
             $("span.p").text("New Password only contain a-Z 0-9 and special characters follow: @#$%!.").show();
+            $("span.p").css('color', 'red');
             b = false;
          }
 
@@ -23,6 +25,7 @@ $(function(){
              $("span.r").text("").show();
         }else{
             $("span.r").text("The Re New Password field does not match the Re-Password field.").show();
+            $("span.r").css('color', 'red');
             b = false;
          }
          return b;

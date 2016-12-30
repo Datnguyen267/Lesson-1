@@ -13,6 +13,7 @@
 
             );
 //             $data = $this->createCaptcha();
+            $this->session->set_userdata('captcha',$data['cap']);
             $this->template->load('guest', 'registration_view', $data);
         }
 
@@ -42,7 +43,7 @@
                 if($userid){
                     $this->session->set_flashdata('notice','Đăng ký thành công');
                     try {
-                        $this->send_mail($this->input->post('email'));
+                        $this->send_confirmation();
                     } catch (Exception $e) {
                         echo $e->getMessage();
                     }
@@ -65,7 +66,7 @@
             }
 
         }
-        public function createCaptcha(){
+        protected  function createCaptcha(){
             $values = array(
                     'word' => '',
                     'word_length' => 8,
@@ -92,7 +93,7 @@
             $_SESSION['captcha'] = $data['word'];
             echo $data['image'];
         }
-        public function check_fullname($str){
+        public  function check_fullname($str){
                 $nameRegex = '/^[a-zA-Z ]+$/';
                 $c = preg_match('/^[a-zA-Z ]+$/', $str);
                 if($c != null){
@@ -102,9 +103,9 @@
                     return false;
                 }
         }
-            public function check_username($str){
+        public function check_username($str){
                 $nameRegex = '/^[a-zA-Z ]+$/';
-                $c = preg_match('/^[a-zA-Z_]+$/', $str);
+                $c = preg_match('/^[a-zA-Z0-9_]+$/', $str);
                 if($c != null){
                     return true;
                 }else{
@@ -122,7 +123,7 @@
                     return false;
                 }
             }
-        public  function check_duplicate_name($str){
+            public  function check_duplicate_name($str){
              $query = $this->db->query("SELECT username FROM User");
              $n = 0;
              $array_account;
@@ -195,28 +196,29 @@
             }
         }
 
-        /**
-         * Send mail
-         * @param string $str
-         * @return array  */
-        public function send_mail() {
-            $from_email = "danguyen267@gmail.com";
-            $to_email = $this->input->post('email');
+        public function send_confirmation() {
+            $this->load->library('email');  	//load email library
+            $this->email->from('datnguyen267@gmail.com', 'My Site'); //sender's email
+            $address = $_POST['email'];	//receiver's email
+            $subject="Welcome to MySite!";	//subject
+            $message= /*-----------email body starts-----------*/
+            'Thanks for signing up,
 
-            //Load email library
-            $this->load->library('email');
+        Your account has been created.
+        Here are your login details.
+        -------------------------------------------------
+        Email   : ' . $_POST['email'] . '
+        -------------------------------------------------
 
-            $this->email->from($from_email, 'Tien Dat');
-            $this->email->to($to_email);
-            $this->email->subject('Email Test');
-            $this->email->message('Testing the email class.');
+        Please click this link to activate your account:
 
-            //Send mail
-            if($this->email->send()){
-                $this->session->set_flashdata("email_sent","Email sent successfully.");
-            } else{
-                $this->session->set_flashdata("email_sent","Error in sending Email.");
-            }
+        ' . base_url() . 'guest/login/verify?' .
+                'email=' . $_POST['email'] . '&hash=' . md5($this->input->post('email')."Verifiy Code.") ;
+            /*-----------email body ends-----------*/
+            $this->email->to($address);
+            $this->email->subject($subject);
+            $this->email->message($message);
+            $this->email->send();
         }
     }
     ?>

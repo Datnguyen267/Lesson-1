@@ -46,3 +46,7 @@
     span.error p{width: auto; padding: 0 0 0 120px; font-style: italic; color: red; font-size: 90%;}
     span.success {color: green;}
     #form-login{ width: 10px;}
+
+    td#error{
+        color: red;
+    }

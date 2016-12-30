@@ -43,7 +43,7 @@ if (!defined('BASEPATH'))
             if($this->form_validation->run()){
                 $userid= $this->profile_model->change_profile();
                 if($userid){
-                    echo 'true n�';
+                    echo 'true n�';
                     $this->session->set_flashdata('notice','Sửa thông tin thành công');
                     redirect('member/profile');
                 }else{

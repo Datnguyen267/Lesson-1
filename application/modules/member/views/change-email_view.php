@@ -21,7 +21,7 @@ $email = $t['email'];
           <td>
                 <?php echo form_input('email', $this->input->post("email"))."<span class= e></span>"."<br />";?>
           </td>
-          <td>
+          <td id = "error">
                   <?php echo form_error('email')?>
           </td>
       </tr>

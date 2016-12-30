@@ -2,12 +2,13 @@
  *
  */
 $(function(){
-    $('form').submit(function(){
+    $('form.registration').submit(function(){
         var b = true;
          if (check_fname($("input[name =fullname]").val())) {
              $("span.f").text("").show();
         }else{
             $("span.f").text("Fullname only contain a-Z and letters.").show();
+            $("span.f").css('color', 'red');
             b = false;
          }
 
@@ -15,6 +16,7 @@ $(function(){
              $("span.u").text("").show();
         }else{
             $("span.u").text("Username only contain a-Z 0-9 and underscope.").show();
+            $("span.u").css('color', 'red');
             b = false;
          }
 
@@ -22,6 +24,7 @@ $(function(){
              $("span.e").text("").show();
          }else{
             $("span.e").text("The Email field must contain a valid email address.").show();
+            $("span.e").css('color', 'red');
             b = false;
          }
 
@@ -29,6 +32,7 @@ $(function(){
              $("span.p").text("").show();
         }else{
             $("span.p").text("Password only contain a-Z 0-9 and special characters follow: @#$%!.").show();
+            $("span.p").css('color', 'red');
             b = false;
          }
 
@@ -36,6 +40,7 @@ $(function(){
              $("span.r").text("").show();
         }else{
             $("span.r").text("The Password field does not match the Re-Password field.").show();
+            $("span.r").css('color', 'red');
             b = false;
          }
 
@@ -43,6 +48,7 @@ $(function(){
              $("span.a").text("").show();
         }else{
             $("span.a").text("Please enter correct Address!").show();
+            $("span.a").css('color', 'red');
             b = false;
          }
 
@@ -50,6 +56,7 @@ $(function(){
              $("span.c").text("").show();
         }else{
             $("span.c").text("Please enter correct captcha!").show();
+            $("span.c").css('color', 'red');
             b = false;
          }
 
@@ -57,17 +64,22 @@ $(function(){
              $("span.s").text("").show();
         }else{
             $("span.s").text("Please seclect correct value of sex. Value only 1 or 2!").show();
+            $("span.s").css('color', 'red');
             b = false;
          }
          if (check_birthday($("select[name =day]").val(),$("select[name =month]").val(),$("select[name =year]").val())) {
              $("span.b").text("").show();
         }else{
             $("span.b").text("Please seclect correct date!").show();
+            $("span.b").css('color', 'red');
             b = false;
          }
-
+         if(b ==  true){
+             $('td#error').hide();
+         }
          return b;
     });
+
     function check_fname(str){
         var nameRegex = /^[a-zA-Z ]+$/;
         var c = str.match(nameRegex);

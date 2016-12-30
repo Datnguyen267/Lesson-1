@@ -8,6 +8,7 @@ $(function(){
              $("span.f").text("").show();
         }else{
             $("span.f").text("Fullname only contain a-Z and letters.").show();
+            $("span.f").css('color', 'red');
             b = false;
          }
 
@@ -15,18 +16,21 @@ $(function(){
              $("span.a").text("").show();
         }else{
             $("span.a").text("Please enter correct Address!").show();
+            $("span.a").css('color', 'red');
             b = false;
          }
             if (check_birthday($("select[name =bday]").val(),$("select[name =bmonth]").val(),$("select[name =byear]").val())) {
                  $("span.b").text("").show();
             }else{
                 $("span.b").text("Please seclect correct date!").show();
+                $("span.b").css('color', 'red');
                 b = false;
              }
             if (check_sex($('input:radio[name=sex]:checked').val())) {
                 $("span.s").text("").show();
            }else{
                $("span.s").text("Please seclect correct value of sex. Value only 1 or 2!").show();
+               $("span.s").css('color', 'red');
                b = false;
             }
          return b;

@@ -10,6 +10,7 @@
 <script type="text/javascript" src="<?php echo asset_url('js/change-email_validation.js'); ?>"> </script>
 <script type="text/javascript" src="<?php echo asset_url('js/change-password_validation.js'); ?>"> </script>
 <script type="text/javascript" src="<?php echo asset_url('js/change-profile_validation.js'); ?>"> </script>
+<link href="<?php echo asset_url('css/member.css'); ?>" type="text/css" rel="stylesheet" />
 
 <head>
 

@@ -2,7 +2,6 @@
 class Login extends CI_Controller{
 
     private $b_Check = false;
-
     public function __construct(){
         parent::__construct();
 
@@ -42,6 +41,16 @@ class Login extends CI_Controller{
         $this->template->load('guest', 'login_view', $data);
 
     }
+    public function verify() {
+        $result = $this->login_model->get_hash_value($_GET['email']); //get the hash value which belongs to given email from database
+        if($result){
+            if($result == $_GET['hash']){  //check whether the input hash value matches the hash value retrieved from the database
+                $this->login_model->verify_user($_GET['email']); //update the status of the user as verified
+                /*---Now you can redirect the user to whatever page you want---*/
+                redirect(base_url('guest/verify_successful'));
+            }
+        }
+    }
 
     public function logout(){
         $this->session->unset_userdata('user');	// Unset session of user
@@ -51,6 +60,16 @@ class Login extends CI_Controller{
     public function success(){
         $userInfo['user'] = $this->session->userdata('user');
         $this->load->view('home_view', $userInfo);
+    }
+    public function check_verify(){
+        $result = $this->login_model->is_verified();
+        if($result){
+            echo 'Tài khoản đã kích hoạt!';
+            return true;
+        }else{
+            echo 'Tài khoản chưa kích hoạt!';
+            return false;
+        }
     }
 
 }

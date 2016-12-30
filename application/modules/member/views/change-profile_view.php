@@ -24,7 +24,7 @@ $date = explode("-", $birthday);
           <td>
                <?php echo form_input('fullname',$fname). "<span class = 'f'> </span>"."<br />";?>
           </td>
-          <td>
+          <td id = "error">
                   <?php echo form_error('fullname');?>
           </td>
       </tr>
@@ -51,7 +51,7 @@ $date = explode("-", $birthday);
           <td>
                 <?php echo form_input('address',$address)."<span class = 'a'> </span>"."<br />";?>
           </td>
-                    <td>
+          <td id = "error">
                   <?php echo form_error('address');?>
           </td>
       </tr>
@@ -68,7 +68,7 @@ $date = explode("-", $birthday);
                 }
                 ?>
           </td>
-           <td>
+           <td  id = "error">
                   <?php echo form_error('sex');?>
           </td>
       </tr>
@@ -110,7 +110,7 @@ $date = explode("-", $birthday);
                 echo "</select>"."<span class = b> </span>";
                 ?>
           </td>
-          <td>
+          <td id = "error">
                   <?php echo form_error('birthday');?>
           </td>
       </tr>

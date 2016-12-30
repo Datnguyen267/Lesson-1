@@ -35,7 +35,7 @@ for($i = $now['year'] - 1; $i>=$now['year'] - 100; $i--){
         <a href = "<?php echo base_url();?>guest/login">2. Login </a>
     </div>
      <?php
-      echo form_open(base_url()."guest/registration/registration");
+      echo form_open(base_url()."guest/registration/registration", "class= 'registration'");
       echo form_fieldset("Registration form");
       ?>
       <table align = "center">
@@ -47,7 +47,7 @@ for($i = $now['year'] - 1; $i>=$now['year'] - 100; $i--){
 
                 <?php echo form_input('fullname',$this->input->post('fullname')). "<span class = 'f'> </span>"."<br />";?>
           </td>
-          <td>
+          <td id = "error">
                   <?php echo form_error('fullname');?>
           </td>
       </tr>
@@ -58,7 +58,7 @@ for($i = $now['year'] - 1; $i>=$now['year'] - 100; $i--){
           <td>
                 <?php echo form_input('username',$this->input->post('username')). "<span class = 'u'> </span>"."<br />";?>
           </td>
-           <td>
+           <td id = "error">
                   <?php echo form_error('username');?>
           </td>
       </tr>
@@ -69,7 +69,7 @@ for($i = $now['year'] - 1; $i>=$now['year'] - 100; $i--){
           <td>
                 <?php echo form_input('email',$this->input->post('email')). "<span class = 'e'> </span>"."<br />";?>
           </td>
-           <td>
+           <td id = "error">
                   <?php echo form_error('email');?>
           </td>
       </tr>
@@ -80,7 +80,7 @@ for($i = $now['year'] - 1; $i>=$now['year'] - 100; $i--){
           <td>
                 <?php echo form_password('password')."<span class = 'p'> </span>"."<br />";?>
           </td>
-           <td>
+           <td id = "error">
                   <?php echo form_error('password');?>
           </td>
       </tr>
@@ -91,7 +91,7 @@ for($i = $now['year'] - 1; $i>=$now['year'] - 100; $i--){
           <td>
                 <?php echo form_password('repassword')."<span class = 'r'> </span>"."<br />";?>
           </td>
-           <td>
+           <td id = "error">
                   <?php echo form_error('repassword');?>
           </td>
       </tr>
@@ -102,7 +102,7 @@ for($i = $now['year'] - 1; $i>=$now['year'] - 100; $i--){
           <td>
                 <?php echo form_input('address',$this->input->post('address'))."<span class = 'a'> </span>"."<br />";?>
           </td>
-           <td>
+           <td id = "error">
                   <?php echo form_error('address');?>
           </td>
       </tr>
@@ -113,7 +113,7 @@ for($i = $now['year'] - 1; $i>=$now['year'] - 100; $i--){
           <td>
                 <?php echo form_radio('sex','1',TRUE)."Male".form_radio('sex','2')."Female   "."<span class = 's'> </span>"."<br />"?>
           </td>
-           <td>
+           <td id = "error">
                   <?php echo form_error('sex');?>
           </td>
       </tr>
@@ -131,8 +131,8 @@ for($i = $now['year'] - 1; $i>=$now['year'] - 100; $i--){
 
 
           </td>
-           <td>
-                  <?php echo form_error('fullname');?>
+           <td id = "error">
+                  <?php echo form_error('birthday');?>
           </td>
       </tr>
       <tr>
@@ -152,13 +152,13 @@ for($i = $now['year'] - 1; $i>=$now['year'] - 100; $i--){
           <td>
                 <?php echo form_input('captcha')."<span class = 'c'> </span>"; echo "<a href='#' class ='refresh'><img id = 'ref_symbol' width = '20px' heigth = '20px' src =".base_url()."assets/img/refresh.png></a>"."<br />"; ?>
           </td>
-           <td>
+           <td id = "error">
                   <?php echo form_error('captcha');?>
           </td>
       </tr>
       <tr>
           <td>
-                <?php echo form_submit("regist",  "Regist");?>
+                <?php echo form_submit("regist",  "Regist",'id = submit');?>
           </td>
           <td>
                 <button onclick="window.location.href='http://lesson1.lampart.com.vn/guest/main'">Cancel</button>

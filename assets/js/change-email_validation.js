@@ -9,6 +9,7 @@ $(function(){
              $("span.e").text("").show();
          }else{
             $("span.e").text("The Email field must contain a valid email address.").show();
+            $("span.e").css('color', 'red');
             b = false;
          }
          return b;

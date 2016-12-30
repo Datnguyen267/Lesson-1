@@ -46,7 +46,7 @@ if (!defined('BASEPATH'))
                 $this->template->load('member', 'change-email_view',$data);
             }
         }
-        function check_duplicate_email($str){
+        public function check_duplicate_email($str){
             $query = $this->db->query("SELECT email FROM User");
             $n = 0;
             $array_email;
@@ -68,7 +68,7 @@ if (!defined('BASEPATH'))
             }
         }
 
-        public function send_mail() {
+        private function send_mail() {
             $from_email = "danguyen267@gmail.com";
             $to_email = $this->input->post('email');
 

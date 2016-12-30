@@ -56,7 +56,7 @@ if (!defined('BASEPATH'))
                 $this->template->load('member', 'change-password_view', $data);
             }
         }
-        public function check_passowrd(){
+        public  function check_passowrd(){
             $t = $this->session->userdata('user');
             $inputoldpass = md5($this->input->post('oldpass'));
             $oldpass = $t['password'];

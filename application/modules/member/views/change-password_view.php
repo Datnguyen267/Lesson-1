@@ -5,13 +5,14 @@ $t = $this->session->userdata('user');
       echo form_open(base_url()."member/changepassword/change_password", 'class = "password"');
       echo form_fieldset("Change your password"); ?>
       <table align = "center">
+      <tr>
           <td>
                 <?php echo form_label("Old password : ");?>
           </td>
           <td>
                 <?php echo form_password('oldpass')."<span class = o></span>"."<br />";?>
           </td>
-          <td>
+          <td id = "error">
                   <?php echo form_error('oldpass');?>
           </td>
       </tr>
@@ -22,7 +23,7 @@ $t = $this->session->userdata('user');
           <td>
                 <?php echo form_password('password')."<span class = p></span>"."<br />";?>
           </td>
-           <td>
+           <td id = "error">
                   <?php echo form_error('password');?>
           </td>
       </tr>
@@ -33,7 +34,7 @@ $t = $this->session->userdata('user');
           <td>
                 <?php echo form_password('renewpass')."<span class = r></span>"."<br />";?>
           </td>
-           <td>
+           <td id = "error">
                   <?php echo form_error('renewpass');?>
           </td>
       </tr>
