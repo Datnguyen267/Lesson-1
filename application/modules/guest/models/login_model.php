@@ -16,7 +16,7 @@ class Login_model extends CI_Model{
     public function checkUser( $userInfo ){
         $user	=	$this->db->select()
         ->where('username', $userInfo['username'])
-//         ->where('password', $userInfo['password'])
+        ->where('password', $userInfo['password'])
         ->get($this->_name)
         ->row_array();
         if($user['username'] != ""){
