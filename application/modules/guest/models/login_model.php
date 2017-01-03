@@ -16,18 +16,17 @@ class Login_model extends CI_Model{
     public function checkUser( $userInfo ){
         $user	=	$this->db->select()
         ->where('username', $userInfo['username'])
-        ->where('password', $userInfo['password'])
+//         ->where('password', $userInfo['password'])
         ->get($this->_name)
         ->row_array();
-        if(count($user) >0){
-            echo 'true lần 1';
-                if($this->is_verified()){
-                    echo 'true lần 2';
-                    return $user;
+        if($user['username'] != ""){
+                if($user['is_verified'] == 1){
+                    return 1;
+                }else{
+                    return 2;
                 }
         } else {
-            echo 'fail';
-            return false;
+            return 0;
         }
     }
 
@@ -43,11 +42,5 @@ class Login_model extends CI_Model{
         return $row->hash;
     }
 
-    public function is_verified(){
-        $query = $this->db->get_where('User', array('is_verified' => 1));
-        $row= $query->row();
-        echo 'row'.$row;
-        return $row->hash;
-    }
 
 }

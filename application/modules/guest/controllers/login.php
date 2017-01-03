@@ -26,12 +26,15 @@ class Login extends CI_Controller{
             $userInfo['username'] = $this->input->post('username');
             $userInfo['password'] = md5($this->input->post('password'));
             $checkResult = $this->login_model->checkUser( $userInfo );
-            if($checkResult){
+            if($checkResult == 1){
                 $this->session->set_userdata('user', $checkResult);
                 redirect(base_url('/member/home'));
-            }else{
-                $this->b_Check = false;
-            }
+            }else if($checkResult == 2){
+                    echo "Tài khoản chưa xác thực!";
+                }else
+                {
+                    $this->b_Check = false;
+                }
         }
         $data = array(
 
@@ -60,16 +63,6 @@ class Login extends CI_Controller{
     public function success(){
         $userInfo['user'] = $this->session->userdata('user');
         $this->load->view('home_view', $userInfo);
-    }
-    public function check_verify(){
-        $result = $this->login_model->is_verified();
-        if($result){
-            echo 'Tài khoản đã kích hoạt!';
-            return true;
-        }else{
-            echo 'Tài khoản chưa kích hoạt!';
-            return false;
-        }
     }
 
 }
